@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação em Microinformática - Exercício 01</title>
+</head>
+<body>
+  <h1>Exercício 01</h1>
+  <p>Solicita várias informações e exibe de uma vez na página.</p>
+
+  <script>
+    let firstName = prompt('Informe seu primeiro nome:')
+    let lastName = prompt('Informe seu sobrenome:')
+    let email = prompt('Informe seu e-mail:')
+    let rg = prompt('Informe seu RG:')
+
+    document.write(`
+      <ul>
+        <li>Nome: <b>${firstName} ${lastName}</b></li>
+        <li>E-mail: <b>${email}</b></li>
+        <li>RG: <b>${rg}</b></li>
+      </ul>
+    `)
+  </script>
+</body>
+</html>

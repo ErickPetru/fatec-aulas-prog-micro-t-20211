@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação em Microinformática - Exemplo 02</title>
+</head>
+<body>
+  <h1>Exemplo 02</h1>
+  <p>Pede dois números para o usuário e soma.</p>
+
+  <script>
+    let n1 = prompt('Informe um número:')
+    let n2 = prompt('Informe outro número:')
+
+    let r = parseFloat(n1) + parseFloat(n2)
+
+    // Se não conseguir converter para number, a resposta é:
+    // NaN (abreviação de "Not a Number" em inglês).
+
+    document.write(`A soma de ${n1} e ${n2} é <b>${r}</b>.`)
+  </script>
+</body>
+</html>
