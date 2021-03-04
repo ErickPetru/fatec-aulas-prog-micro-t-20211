@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação em Microinformática - Exercício 04</title>
+</head>
+<body>
+  <h1>Exercício 04</h1>
+  <p>Calcula a Equação de 2º Grau usando a Fórmula de Bhaskara.</p>
+
+  <script>
+    let a = parseFloat(prompt('Informe o valor de A:'))
+    let b = parseFloat(prompt('Informe o valor de B:'))
+    let c = parseFloat(prompt('Informe o valor de C:'))
+
+    let delta = b * b - 4 * a * c // Primeiro calcula o Delta
+    let root = Math.sqrt(delta) // Depois calcula a raiz do Delta
+    let x1 = (-b + root) / (2 * a) // Calcula a primeira raiz
+    let x2 = (-b - root) / (2 * a) // Calcula a segunda raiz
+
+    document.write(`
+      <ul>
+        <li>Entradas: <b>${a}</b>, <b>${b}</b> e <b>${c}</b>.</li>
+        <li>X1: <b>${x1}</b>.</li>
+        <li>X2: <b>${x2}</b>.</li>
+      </ul>
+    `)
+  </script>
+</body>
+</html>

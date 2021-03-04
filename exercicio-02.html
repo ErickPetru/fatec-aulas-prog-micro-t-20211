@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação em Microinformática - Exercício 02</title>
+</head>
+<body>
+  <h1>Exercício 02</h1>
+  <p>Solicita dois números e exibe as operações aritméticas entre eles.</p>
+
+  <script>
+    let n1 = parseFloat(prompt('Informe o 1º número:'))
+    let n2 = parseFloat(prompt('Informe o 2º número:'))
+
+    let sum = n1 + n2 // Soma
+    let subtraction = n1 - n2 // Subtração
+    let multiplication = n1 * n2 // Multiplicação
+    let division = n1 / n2 // Divisão
+
+    // Bônus (não estava no enunciado), resto da divisão:
+    let rest = n1 % n2
+
+    document.write(`
+      <ul>
+        <li>Entradas: <b>${n1}</b> e <b>${n2}</b>.</li>
+        <li>Soma: <b>${sum}</b>.</li>
+        <li>Subtração: <b>${subtraction}</b>.</li>
+        <li>Multiplicação: <b>${multiplication}</b>.</li>
+        <li>Divisão: <b>${division}</b>.</li>
+        <li>Resto: <b>${rest}</b>.</li>
+      </ul>
+    `)
+  </script>
+</body>
+</html>

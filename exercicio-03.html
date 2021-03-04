@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação em Microinformática - Exercício 03</title>
+</head>
+<body>
+  <h1>Exercício 03</h1>
+  <p>Calcula o valor com desconto a partir do preço e do percentual de desconto.</p>
+
+  <script>
+    let price = parseFloat(prompt('Qual o preço base do produto?'))
+    let discount = parseFloat(prompt('Quantos porcento de desconto aplicar?'))
+
+    let amountDiscounted = price * discount / 100 // Calcula o valor do desconto
+    let finalPrice = price - amountDiscounted // Subtrai o valor do preço base
+
+    document.write(`
+      <ul>
+        <li>Preço base: <b>${price}</b>.</li>
+        <li>Valor do desconto: <b>${amountDiscounted}</b>.</li>
+        <li>Preço final: <b>${finalPrice}</b>.</li>
+      </ul>
+    `)
+  </script>
+</body>
+</html>
