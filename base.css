@@ -15,18 +15,22 @@ html {
     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   background: #151515;
-  color: #fff8;
+  color: #fffb;
   height: 100%;
 }
 
 body {
   margin: 0;
-  padding: 2rem 0;
+  padding: 2rem;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body::before,
@@ -41,9 +45,15 @@ h3,
 h4,
 h5,
 h6 {
+  display: inline-block;
   font-size: 1.5em;
   color: #fff;
   margin: 0 0 0.5em;
+  background: #15151580;
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
+  backdrop-filter: blur(15px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 h1 {
@@ -72,7 +82,13 @@ h6 {
 }
 
 p {
+  display: block;
   margin: 0.75rem 0 0;
+  background: #15151580;
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
+  backdrop-filter: blur(15px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 p:first-of-type {
@@ -98,7 +114,6 @@ select {
 }
 
 form {
-  background: #0d0d0d;
   padding: 1.5rem 2rem;
   margin: 1.5rem 0 1.5rem;
   width: 100%;
@@ -106,6 +121,10 @@ form {
   flex-wrap: wrap;
   flex-flow: column;
   gap: 0.75rem;
+  background: #080808d8;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 8px 40px -5px rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
 }
 
 form > * {
@@ -373,7 +392,7 @@ form > textarea.negative,
 form > textarea.error,
 form > select.negative,
 form > select.error {
-  border-color: #ff2222;
+  border-color: #ff0000;
 }
 
 div.negative,
@@ -401,4 +420,21 @@ div.success b,
 p.positive b,
 p.success b {
   font-weight: 600;
+}
+
+.women {
+  color: #0c91c5;
+}
+
+.men {
+  color: #da3dcd;
+}
+
+.pulse {
+  animation: pulse 0.75s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.75) }
+  50% { transform: scale(1) }
 }
