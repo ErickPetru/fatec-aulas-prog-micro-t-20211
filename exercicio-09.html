@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <title>Programação em Microinformática - Exercício 09</title>
+</head>
+<body>
+  <h1>Exercício 09</h1>
+  <p>Exibir o intervalo de números entre dois números informados, de forma decrescente.</p>
+
+  <form id="form" novalidate>
+    <input id="field1" type="number" placeholder="Informe um número">
+    <input id="field2" type="number" placeholder="Informe outro número">
+
+    <button>Exibir</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function onSubmit(event) {
+      event.preventDefault()
+
+      // Lê os valores da tela e converte para números.
+      let n1 = parseFloat(field1.value)
+      let n2 = parseFloat(field2.value)
+
+      // Limpa a aparência dos campos, resto de execuções anteriores.
+      field1.className = ''
+      field2.className = ''
+
+      // Validações tradicionais de números inválidos...
+      if (isNaN(n1)) {
+        result.innerHTML = '<p class="negative">Por favor, informe o primeiro número corretamente!</p>'
+        field1.className = 'negative'
+        field1.focus()
+        return
+      }
+
+      if (isNaN(n2)) {
+        result.innerHTML = '<p class="negative">Por favor, informe o segundo número corretamente!</p>'
+        field2.className = 'negative'
+        field2.focus()
+        return
+      }
+
+      // Supõe que o menor número é n1 e o maior é n2.
+      let min = n1
+      let max = n2
+
+      // Verifica se o menor na verdade é o maior.
+      if (min > max) {
+        // Inverte para ficar com menor e maior corretos.
+        min = n2
+        max = n1
+      }
+
+      // Limpa o resultado atualmente exibido, resto de execuções anteriores.
+      result.innerHTML = ''
+
+      // Inicia no maior e percorre até antes do menor, decrementando.
+      for (let i = max; i > min; i--) {
+        result.innerHTML += `${i}, `
+      }
+
+      // Termina exibindo o menor número, que ficou de fora da repetição anterior.
+      result.innerHTML += min
+    }
+
+    form.addEventListener('submit', onSubmit)
+  </script>
+</body>
+</html>

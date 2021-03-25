@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <title>Programação em Microinformática - Exercício 10</title>
+</head>
+<body>
+  <h1>Exercício 10</h1>
+  <p>Informe um número para ver sua tabuada de 1 a 10.</p>
+
+  <form id="form" novalidate>
+    <input id="field" type="number" placeholder="Informe um número">
+
+    <button>Exibir</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function onSubmit(event) {
+      event.preventDefault()
+
+      // Lê o valor da tela e converte para número.
+      let n = parseFloat(field.value)
+
+      // Limpa a aparência do campo, resto de execuções anteriores.
+      field.className = ''
+
+      // Validação tradicional de número inválido...
+      if (isNaN(n)) {
+        result.innerHTML = '<p class="negative">Por favor, informe o número corretamente!</p>'
+        field.className = 'negative'
+        field.focus()
+        return
+      }
+
+      // Limpa o resultado atualmente exibido, resto de execuções anteriores.
+      result.innerHTML = '<ul>'
+
+      // Inicia no 1 e percorre até 10, incrementando.
+      for (let i = 1; i <= 10; i++) {
+        // Calcula a tabuada pelo número atual da repetição.
+        let r = i * n
+
+        // Mostra formatando bonitinho a mensagem de resultado.
+        result.innerHTML += `<li>${i} × ${n} = <strong>${r}</strong></li>`
+      }
+
+      result.innerHTML += '</ul>'
+    }
+
+    form.addEventListener('submit', onSubmit)
+  </script>
+</body>
+</html>
