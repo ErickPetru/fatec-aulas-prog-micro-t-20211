@@ -105,12 +105,27 @@ select {
   transition-timing-function: ease-in-out;
 }
 
+input[type="number"]::-webkit-inner-spin-button {
+  opacity: 0;
+  pointer-events: none;
+}
+
 #loading {
   display: none;
   margin: 1rem auto;
   width: 48px;
   height: 48px;
   shape-rendering: auto;
+}
+
+#result {
+  padding: 0 0 2rem;
+}
+
+.buttons {
+  padding: 0 2rem;
+  margin: 0 0 1.5rem;
+  width: 100%;
 }
 
 form {
@@ -124,7 +139,6 @@ form {
   background: #080808d8;
   backdrop-filter: blur(15px);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 8px 40px -5px rgba(0, 0, 0, 0.06);
-  border-radius: 5px;
 }
 
 form > * {
@@ -173,8 +187,7 @@ body > div {
 form > input,
 form > select,
 form > textarea,
-.buttons > button,
-form > button {
+button {
   min-height: 2.5rem;
 }
 
@@ -249,8 +262,7 @@ a:hover {
   color: #0c90a1;
 }
 
-.buttons > button,
-form > button {
+button {
   text-align: center;
   text-decoration: none;
   justify-content: center;
@@ -269,18 +281,15 @@ form > button {
   background: #050505;
 }
 
-form > button:hover,
-form > button:focus,
-.buttons > button:hover,
-.buttons > button:focus {
+button:hover,
+button:focus {
   border: 1px solid #fff;
   background: #ccc;
   color: #111;
   box-shadow: 0 2px 12px -2px #0008;
 }
 
-form > button:active,
-.buttons > button:active {
+button:active {
   box-shadow: inset 0 2px 20px #0008;
 }
 
@@ -392,7 +401,7 @@ form > textarea.negative,
 form > textarea.error,
 form > select.negative,
 form > select.error {
-  border-color: #ff0000;
+  border-color: #ff2222;
 }
 
 div.negative,
@@ -428,13 +437,4 @@ p.success b {
 
 .men {
   color: #da3dcd;
-}
-
-.pulse {
-  animation: pulse 0.75s ease infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(0.75) }
-  50% { transform: scale(1) }
 }
