@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <title>Programação em Microinformática - Exemplo 06</title>
+</head>
+<body>
+  <h1>Exemplo 06</h1>
+  <p>Cadastra vários números em um Array, podendo ver todos depois.</p>
+
+  <form id="form">
+    <input id="field" type="number" placeholder="Informe um número">
+    <button>Adicionar</button>
+  </form>
+
+  <div class="buttons">
+    <button id="showAll">Exibir todos</button>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    let numbers = []
+
+    function onSubmit(event) {
+      event.preventDefault()
+
+      field.className = ''
+
+      if (!field.value) {
+        result.innerHTML = '<p class="negative">Informe um número!</p>'
+        field.className = 'negative'
+        field.focus()
+        return
+      }
+
+      let n = parseFloat(field.value)
+      numbers.push(n)
+
+      result.innerHTML = ''
+      field.value = ''
+      field.focus()
+    }
+
+    form.addEventListener('submit', onSubmit)
+
+    function onClick(event) {
+      event.preventDefault()
+
+      if (!numbers.length) {
+        result.innerHTML = '<p class="negative">Cadastre algum número antes de poder exibir.</p>'
+        field.focus()
+        return
+      }
+
+      result.innerHTML = `<p>${numbers.join(', ')}</p>`
+    }
+
+    showAll.addEventListener('click', onClick)
+  </script>
+</body>
+</html>
