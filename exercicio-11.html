@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <title>Introdução à Programação - Exercício 11</title>
+</head>
+<body>
+  <h1>Exercício 11</h1>
+  <p>Cadastro de professores usando classes para abstração de comportamentos.</p>
+
+  <form id="form" novalidate>
+    <input id="field1" placeholder="Nome completo" autocomplete="off" required>
+    <select id="field2" placeholder="Sexo" required>
+      <option value="">Sexo</option>
+      <option value="f">Feminino</option>
+      <option value="m">Masculino</option>
+    </select>
+    <select id="field3" placeholder="Titulação" required>
+      <option value="">Titulação</option>
+      <option>Graduação</option>
+      <option>Especialização</option>
+      <option>Mestrado</option>
+      <option>Doutorado</option>
+    </select>
+    <button>Adicionar</button>
+  </form>
+
+  <div class="buttons">
+    <button id="showAll">Exibir todos</button>
+  </div>
+
+  <div id="result"></div>
+
+  <script type="module">
+    import RegistrationPage from './RegistrationPage.js'
+    import Teacher from './Teacher.js'
+
+    let page = new RegistrationPage([field1, field2, field3], result)
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+
+      if (!page.isValid()) return
+
+      page.items.push(new Teacher(field1.value, field2.value, field3.value))
+      page.clearAllValues()
+    })
+
+    showAll.addEventListener('click', () => {
+      page.clearAllClasses()
+
+      if (!page.items.length) {
+        result.innerHTML = '<p class="negative">Nenhum professor cadastrado.</p>'
+        field1.focus()
+        return
+      }
+
+      let listItems = ''
+      for (let item of page.items) {
+        listItems += `<li><b>${item.name}</b> (${item.degree})</li>`
+      }
+
+      result.innerHTML = `<ul>${listItems}</ul>`
+    })
+  </script>
+</body>
+</html>
